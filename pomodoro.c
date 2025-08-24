@@ -64,13 +64,29 @@ int main() {
     printf("Enter number of rounds: ");
     scanf("%d", &rounds);
 
+    int total_work = 0;
+    int total_break = 0;
+    int completed_rounds = 0;
+
     for (int i = 1; i <= rounds; ++i) {
         printf("\n--- Pomodoro %d ---\n", i);
         countdown(work_time, "Work time");
+        total_work += work_time;
         countdown(break_time, "Break time");
+        total_break += break_time;
+        completed_rounds++;
+        printf("Statistics so far:\n");
+        printf("Completed rounds: %d\n", completed_rounds);
+        printf("Total work time: %d minutes\n", total_work);
+        printf("Total break time: %d minutes\n", total_break);
     }
 
     printf("\nAll Pomodoro sessions completed!\n");
+    printf("Final statistics:\n");
+    printf("Total completed rounds: %d\n", completed_rounds);
+    printf("Total work time: %d minutes\n", total_work);
+    printf("Total break time: %d minutes\n", total_break);
+
     beep();
     return 0;
 }
